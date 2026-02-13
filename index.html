@@ -77,6 +77,34 @@
             border-bottom: 1px solid var(--border);
         }
 
+        /* Bottom Navigation for Mobile */
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: white;
+                border-bottom: none;
+                border-top: 1px solid var(--border);
+                margin-top: 0;
+                padding: 8px 0;
+                gap: 0;
+                justify-content: space-around;
+                z-index: 100;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            }
+
+            .container {
+                padding-bottom: 80px; /* Space for bottom nav */
+            }
+
+            header {
+                border-bottom: none;
+                margin-bottom: 24px;
+            }
+        }
+
         .nav-item {
             padding: 12px 0;
             font-size: 15px;
@@ -85,6 +113,20 @@
             border-bottom: 2px solid transparent;
             transition: all 0.3s ease;
             font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .nav-item:hover {
@@ -1258,8 +1300,12 @@
             }
 
             header {
-                padding: 24px 0 16px;
-                margin-bottom: 32px;
+                padding: 16px 0 12px;
+                margin-bottom: 16px;
+                position: sticky;
+                top: 0;
+                background: var(--cream);
+                z-index: 90;
             }
 
             .logo {
@@ -1286,6 +1332,17 @@
                 font-size: 13px;
                 padding: 10px 0;
                 white-space: nowrap;
+                min-width: 60px;
+                gap: 2px;
+            }
+
+            .nav-item span {
+                font-size: 11px !important;
+            }
+
+            .nav-icon {
+                width: 24px !important;
+                height: 24px !important;
             }
 
             .upload-section {
@@ -1395,20 +1452,24 @@
 
             .feed-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
+                gap: 0;
+                margin-bottom: 80px;
             }
 
             .feed-post {
-                border-radius: 12px;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+                margin-bottom: 16px;
             }
 
             .post-images {
-                height: 300px;
+                height: 400px;
             }
 
             .post-selfie {
-                width: 80px;
-                height: 110px;
+                width: 90px;
+                height: 120px;
                 top: 12px;
                 right: 12px;
             }
@@ -1493,14 +1554,14 @@
             .fab {
                 width: 56px;
                 height: 56px;
-                bottom: 24px;
-                right: 24px;
+                bottom: 90px;
+                right: 16px;
                 font-size: 20px;
             }
 
             .fab-menu {
-                bottom: 90px;
-                right: 24px;
+                bottom: 156px;
+                right: 16px;
                 min-width: 200px;
                 padding: 12px;
             }
@@ -1988,31 +2049,52 @@
                                 className={`nav-item ${activeTab === 'feed' ? 'active' : ''}`}
                                 onClick={() => setActiveTab('feed')}
                             >
-                                Feed
+                                <svg className="nav-icon" viewBox="0 0 24 24">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                <span style={{fontSize: '13px'}}>Feed</span>
                             </div>
                             <div 
-                                className={`nav-item ${activeTab === 'upload' ? 'active' : ''}`}
-                                onClick={() => setActiveTab('upload')}
+                                className={`nav-item ${activeTab === 'discover' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('discover')}
                             >
-                                Upload
+                                <svg className="nav-icon" viewBox="0 0 24 24">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                                <span style={{fontSize: '13px'}}>Discover</span>
                             </div>
                             <div 
                                 className={`nav-item ${activeTab === 'places' ? 'active' : ''}`}
                                 onClick={() => setActiveTab('places')}
                             >
-                                My Places ({places.length})
+                                <svg className="nav-icon" viewBox="0 0 24 24">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span style={{fontSize: '13px'}}>My Places</span>
                             </div>
                             <div 
-                                className={`nav-item ${activeTab === 'itinerary' ? 'active' : ''}`}
-                                onClick={() => setActiveTab('itinerary')}
+                                className={`nav-item ${activeTab === 'plan' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('plan')}
                             >
-                                Generate Plan
+                                <svg className="nav-icon" viewBox="0 0 24 24">
+                                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="9" y1="15" x2="15" y2="15"></line>
+                                </svg>
+                                <span style={{fontSize: '13px'}}>Plan</span>
                             </div>
                             <div 
                                 className={`nav-item ${activeTab === 'profile' ? 'active' : ''}`}
                                 onClick={() => setActiveTab('profile')}
                             >
-                                Profile
+                                <svg className="nav-icon" viewBox="0 0 24 24">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <span style={{fontSize: '13px'}}>Profile</span>
                             </div>
                         </nav>
                     </header>
@@ -2048,103 +2130,6 @@
                                             <div className="trending-count">{place.saves} saves</div>
                                         </div>
                                     ))}
-                                </div>
-                            </div>
-
-                            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '32px'}}>
-                                <div className="trending-section">
-                                    <div className="trending-title">
-                                        ☀️ Paris Weather
-                                    </div>
-                                    <div style={{display: 'flex', alignItems: 'center', gap: '24px', marginTop: '16px'}}>
-                                        <div style={{fontSize: '48px'}}>🌤️</div>
-                                        <div>
-                                            <div style={{fontSize: '32px', fontWeight: 600, color: 'var(--warm-black)'}}>22°C</div>
-                                            <div style={{fontSize: '14px', color: 'var(--soft-gray)'}}>Partly cloudy, perfect for exploring</div>
-                                        </div>
-                                    </div>
-                                    <div style={{
-                                        display: 'flex',
-                                        gap: '12px',
-                                        marginTop: '16px',
-                                        fontSize: '13px',
-                                        color: 'var(--soft-gray)'
-                                    }}>
-                                        <div>Mon 20°</div>
-                                        <div>Tue 23°</div>
-                                        <div>Wed 21°</div>
-                                        <div>Thu 19°</div>
-                                        <div>Fri 24°</div>
-                                    </div>
-                                    <button 
-                                        style={{
-                                            width: '100%',
-                                            marginTop: '16px',
-                                            padding: '10px',
-                                            borderRadius: '8px',
-                                            border: '1px solid var(--border)',
-                                            background: 'white',
-                                            cursor: 'pointer',
-                                            fontSize: '13px',
-                                            fontWeight: 500
-                                        }}
-                                        onClick={() => alert('☀️ Weather Integration coming soon!\n\n✓ 7-day forecast\n✓ Indoor/outdoor activity suggestions\n✓ Pack based on weather\n✓ Best times to visit')}
-                                    >
-                                        View Full Forecast →
-                                    </button>
-                                </div>
-
-                                <div className="trending-section">
-                                    <div className="trending-title">
-                                        ✨ Recommended for You
-                                    </div>
-                                    <div style={{fontSize: '14px', color: 'var(--soft-gray)', marginBottom: '16px'}}>
-                                        Based on places you've saved
-                                    </div>
-                                    <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
-                                        <div style={{
-                                            padding: '12px',
-                                            background: 'var(--cream)',
-                                            borderRadius: '8px',
-                                            cursor: 'pointer'
-                                        }}>
-                                            <div style={{fontSize: '14px', fontWeight: 600, color: 'var(--warm-black)'}}>
-                                                Le Comptoir du Relais
-                                            </div>
-                                            <div style={{fontSize: '12px', color: 'var(--soft-gray)'}}>
-                                                Similar to Le Voltaire • Saint-Germain
-                                            </div>
-                                        </div>
-                                        <div style={{
-                                            padding: '12px',
-                                            background: 'var(--cream)',
-                                            borderRadius: '8px',
-                                            cursor: 'pointer'
-                                        }}>
-                                            <div style={{fontSize: '14px', fontWeight: 600, color: 'var(--warm-black)'}}>
-                                                L'Ami Jean
-                                            </div>
-                                            <div style={{fontSize: '12px', color: 'var(--soft-gray)'}}>
-                                                Similar vibe to Chez L'Ami Louis • 7th
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button 
-                                        style={{
-                                            width: '100%',
-                                            marginTop: '16px',
-                                            padding: '10px',
-                                            borderRadius: '8px',
-                                            border: '1px solid var(--border)',
-                                            background: 'white',
-                                            cursor: 'pointer',
-                                            fontSize: '13px',
-                                            fontWeight: 500
-                                        }}
-                                        onClick={() => alert('✨ Smart Recommendations coming soon!\n\n✓ AI-powered suggestions\n✓ Based on your taste\n✓ Similar cuisine & vibe\n✓ Same neighborhood options')}
-                                    >
-                                        See More Recommendations →
-                                    </button>
                                 </div>
                             </div>
 
@@ -2207,6 +2192,134 @@
                                 </div>
                                 <div style={{fontSize: '14px'}}>
                                     Check back soon for more moments from Paris
+                                </div>
+                            </div>
+                        </>
+                    )}
+
+                    {!loading && activeTab === 'discover' && (
+                        <>
+                            <div className="feed-header">
+                                <div className="feed-title">Discover Paris</div>
+                                <div className="feed-subtitle">Weather, recommendations, and what to explore</div>
+                            </div>
+
+                            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '32px'}}>
+                                <div className="trending-section">
+                                    <div className="trending-title">
+                                        Weather Forecast
+                                    </div>
+                                    <div style={{display: 'flex', alignItems: 'center', gap: '24px', marginTop: '16px'}}>
+                                        <div style={{fontSize: '48px'}}>🌤️</div>
+                                        <div>
+                                            <div style={{fontSize: '32px', fontWeight: 600, color: 'var(--warm-black)'}}>22°C</div>
+                                            <div style={{fontSize: '14px', color: 'var(--soft-gray)'}}>Partly cloudy, perfect for exploring</div>
+                                        </div>
+                                    </div>
+                                    <div style={{
+                                        display: 'flex',
+                                        gap: '12px',
+                                        marginTop: '16px',
+                                        fontSize: '13px',
+                                        color: 'var(--soft-gray)'
+                                    }}>
+                                        <div>Mon 20°</div>
+                                        <div>Tue 23°</div>
+                                        <div>Wed 21°</div>
+                                        <div>Thu 19°</div>
+                                        <div>Fri 24°</div>
+                                    </div>
+                                    <button 
+                                        style={{
+                                            width: '100%',
+                                            marginTop: '16px',
+                                            padding: '10px',
+                                            borderRadius: '8px',
+                                            border: '1px solid var(--border)',
+                                            background: 'white',
+                                            cursor: 'pointer',
+                                            fontSize: '13px',
+                                            fontWeight: 500
+                                        }}
+                                        onClick={() => alert('☀️ Weather Integration coming soon!\n\n✓ 7-day forecast\n✓ Indoor/outdoor suggestions\n✓ Pack based on weather\n✓ Best times to visit')}
+                                    >
+                                        View Full Forecast →
+                                    </button>
+                                </div>
+
+                                <div className="trending-section">
+                                    <div className="trending-title">
+                                        Recommended for You
+                                    </div>
+                                    <div style={{fontSize: '14px', color: 'var(--soft-gray)', marginBottom: '16px'}}>
+                                        Based on places you've saved
+                                    </div>
+                                    <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
+                                        <div style={{
+                                            padding: '12px',
+                                            background: 'var(--cream)',
+                                            borderRadius: '8px',
+                                            cursor: 'pointer'
+                                        }} onClick={() => alert('Add to My Places coming soon!')}>
+                                            <div style={{fontSize: '14px', fontWeight: 600, color: 'var(--warm-black)'}}>
+                                                Le Comptoir du Relais
+                                            </div>
+                                            <div style={{fontSize: '12px', color: 'var(--soft-gray)'}}>
+                                                Similar to Le Voltaire • Saint-Germain
+                                            </div>
+                                        </div>
+                                        <div style={{
+                                            padding: '12px',
+                                            background: 'var(--cream)',
+                                            borderRadius: '8px',
+                                            cursor: 'pointer'
+                                        }} onClick={() => alert('Add to My Places coming soon!')}>
+                                            <div style={{fontSize: '14px', fontWeight: 600, color: 'var(--warm-black)'}}>
+                                                L'Ami Jean
+                                            </div>
+                                            <div style={{fontSize: '12px', color: 'var(--soft-gray)'}}>
+                                                Similar vibe to Chez L'Ami Louis • 7th
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button 
+                                        style={{
+                                            width: '100%',
+                                            marginTop: '16px',
+                                            padding: '10px',
+                                            borderRadius: '8px',
+                                            border: '1px solid var(--border)',
+                                            background: 'white',
+                                            cursor: 'pointer',
+                                            fontSize: '13px',
+                                            fontWeight: 500
+                                        }}
+                                        onClick={() => alert('✨ Smart Recommendations coming soon!\n\n✓ AI-powered suggestions\n✓ Based on your taste\n✓ Similar cuisine & vibe\n✓ Neighborhood options')}
+                                    >
+                                        See More Recommendations →
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="trending-section">
+                                <div className="trending-title">Explore Paris</div>
+                                <div style={{fontSize: '14px', color: 'var(--soft-gray)', marginBottom: '16px'}}>
+                                    Popular neighborhoods and experiences
+                                </div>
+                                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '12px'}}>
+                                    {['Marais', 'Saint-Germain', 'Montmartre', 'Latin Quarter', 'Le Marais', '7th Arr'].map((hood, idx) => (
+                                        <div key={idx} style={{
+                                            padding: '20px',
+                                            background: 'var(--cream)',
+                                            borderRadius: '12px',
+                                            textAlign: 'center',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s ease',
+                                            border: '1px solid var(--border)'
+                                        }} onClick={() => alert(`Explore ${hood} coming soon!`)}>
+                                            <div style={{fontSize: '16px', fontWeight: 600}}>{hood}</div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </>
@@ -2476,9 +2589,9 @@
                         </>
                     )}
 
-                    {!loading && activeTab === 'itinerary' && (
+                    {!loading && activeTab === 'plan' && (
                         <div className="itinerary-section">
-                            <div className="itinerary-header" style={{marginBottom: '32px'}}>Plan your perfect trip</div>
+                            <div className="itinerary-header" style={{marginBottom: '32px'}}>Plan Your Trip</div>
                             
                             <div className="preference-grid">
                                 <div className="preference-item">
@@ -2514,145 +2627,6 @@
                                         <option value="neighborhood">Stay in Neighborhoods (less travel)</option>
                                         <option value="mixed">Explore Across Paris</option>
                                     </select>
-                                </div>
-                            </div>
-
-                            <div style={{
-                                display: 'grid',
-                                gridTemplateColumns: '1fr 1fr',
-                                gap: '24px',
-                                marginBottom: '32px'
-                            }}>
-                                <div style={{
-                                    background: 'var(--cream)',
-                                    borderRadius: '12px',
-                                    padding: '24px',
-                                    border: '1px solid var(--border)'
-                                }}>
-                                    <div style={{
-                                        fontSize: '18px',
-                                        fontFamily: 'Crimson Pro, serif',
-                                        fontWeight: 600,
-                                        marginBottom: '16px',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '8px'
-                                    }}>
-                                        💰 Budget Tracker
-                                        <span style={{
-                                            fontSize: '11px',
-                                            background: 'var(--terracotta)',
-                                            color: 'white',
-                                            padding: '2px 8px',
-                                            borderRadius: '4px',
-                                            fontFamily: 'DM Sans, sans-serif',
-                                            fontWeight: 600
-                                        }}>BETA</span>
-                                    </div>
-                                    <div style={{fontSize: '14px', color: 'var(--soft-gray)', marginBottom: '16px'}}>
-                                        Estimated trip cost based on your places
-                                    </div>
-                                    <div style={{fontSize: '32px', fontWeight: 600, color: 'var(--warm-black)', marginBottom: '16px'}}>
-                                        €850 - €1,200
-                                    </div>
-                                    <div style={{fontSize: '13px', color: 'var(--soft-gray)', display: 'flex', flexDirection: 'column', gap: '8px'}}>
-                                        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                                            <span>🍽️ Dining</span>
-                                            <span>€600 - €800</span>
-                                        </div>
-                                        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                                            <span>🚇 Transport</span>
-                                            <span>€150 - €250</span>
-                                        </div>
-                                        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                                            <span>🎨 Activities</span>
-                                            <span>€100 - €150</span>
-                                        </div>
-                                    </div>
-                                    <button 
-                                        style={{
-                                            width: '100%',
-                                            marginTop: '16px',
-                                            padding: '12px',
-                                            borderRadius: '8px',
-                                            border: '1px solid var(--border)',
-                                            background: 'white',
-                                            cursor: 'pointer',
-                                            fontSize: '14px',
-                                            fontWeight: 500
-                                        }}
-                                        onClick={() => alert('💰 Full Budget Tracker coming soon!\n\n✓ Track actual spending\n✓ Set daily budgets\n✓ Category breakdowns\n✓ Currency conversion')}
-                                    >
-                                        View Full Budget →
-                                    </button>
-                                </div>
-
-                                <div style={{
-                                    background: 'var(--cream)',
-                                    borderRadius: '12px',
-                                    padding: '24px',
-                                    border: '1px solid var(--border)'
-                                }}>
-                                    <div style={{
-                                        fontSize: '18px',
-                                        fontFamily: 'Crimson Pro, serif',
-                                        fontWeight: 600,
-                                        marginBottom: '16px',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '8px'
-                                    }}>
-                                        🎒 Packing List
-                                        <span style={{
-                                            fontSize: '11px',
-                                            background: 'var(--terracotta)',
-                                            color: 'white',
-                                            padding: '2px 8px',
-                                            borderRadius: '4px',
-                                            fontFamily: 'DM Sans, sans-serif',
-                                            fontWeight: 600
-                                        }}>NEW</span>
-                                    </div>
-                                    <div style={{fontSize: '14px', color: 'var(--soft-gray)', marginBottom: '16px'}}>
-                                        Auto-generated for 7 days in Paris
-                                    </div>
-                                    <div style={{fontSize: '13px', color: 'var(--soft-gray)', display: 'flex', flexDirection: 'column', gap: '8px'}}>
-                                        <label style={{display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer'}}>
-                                            <input type="checkbox" />
-                                            <span>Comfortable walking shoes</span>
-                                        </label>
-                                        <label style={{display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer'}}>
-                                            <input type="checkbox" />
-                                            <span>Light jacket (May weather)</span>
-                                        </label>
-                                        <label style={{display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer'}}>
-                                            <input type="checkbox" />
-                                            <span>Nice outfit for restaurants</span>
-                                        </label>
-                                        <label style={{display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer'}}>
-                                            <input type="checkbox" />
-                                            <span>Camera/phone charger</span>
-                                        </label>
-                                        <div style={{color: 'var(--soft-gray)', fontSize: '12px', marginTop: '8px'}}>
-                                            + 12 more items
-                                        </div>
-                                    </div>
-                                    <button 
-                                        style={{
-                                            width: '100%',
-                                            marginTop: '16px',
-                                            padding: '12px',
-                                            borderRadius: '8px',
-                                            border: '1px solid var(--border)',
-                                            background: 'white',
-                                            cursor: 'pointer',
-                                            fontSize: '14px',
-                                            fontWeight: 500
-                                        }}
-                                        onClick={() => alert('🎒 Full Packing List coming soon!\n\n✓ Customizable checklist\n✓ Weather-based suggestions\n✓ Trip-length optimized\n✓ Check off as you pack')}
-                                    >
-                                        View Full List →
-                                    </button>
                                 </div>
                             </div>
 
@@ -3079,26 +3053,6 @@
                             >
                                 <span className="fab-menu-icon">👥</span>
                                 <span>Invite Friends</span>
-                            </div>
-                            <div 
-                                className="fab-menu-item"
-                                onClick={() => {
-                                    setShowFabMenu(false);
-                                    alert('💰 Budget Tracker coming soon!\n\n✓ Track actual spending\n✓ Set daily budgets\n✓ Category breakdowns\n✓ Currency conversion');
-                                }}
-                            >
-                                <span className="fab-menu-icon">💰</span>
-                                <span>View Budget</span>
-                            </div>
-                            <div 
-                                className="fab-menu-item"
-                                onClick={() => {
-                                    setShowFabMenu(false);
-                                    alert('🎒 Packing List coming soon!\n\n✓ Customizable checklist\n✓ Weather-based suggestions\n✓ Trip-length optimized');
-                                }}
-                            >
-                                <span className="fab-menu-icon">🎒</span>
-                                <span>Packing List</span>
                             </div>
                         </div>
                     )}
