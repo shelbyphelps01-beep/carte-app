@@ -1156,25 +1156,38 @@
         }
 
         .profile-tabs {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 0;
             border-bottom: 1px solid var(--border);
             padding: 0;
             background: white;
-            justify-content: space-around;
         }
 
         .profile-tab {
-            padding: 12px 0;
-            font-size: 13px;
+            padding: 12px 4px;
+            font-size: 11px;
             font-weight: 600;
             color: var(--soft-gray);
             cursor: pointer;
             border-bottom: 2px solid transparent;
             margin-bottom: -1px;
             transition: all 0.3s ease;
-            flex: 1;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .profile-tab svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .profile-tab:hover {
@@ -1345,14 +1358,14 @@
                 flex: 1;
             }
 
-            .profile-tabs {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
+            .profile-tab {
+                font-size: 10px;
+                padding: 10px 2px;
             }
 
-            .profile-tab {
-                white-space: nowrap;
-                min-width: 80px;
+            .profile-tab svg {
+                width: 18px;
+                height: 18px;
             }
 
             .post-images {
@@ -1572,7 +1585,7 @@
             const [places, setPlaces] = useState(extractedPlaces);
             const [loading, setLoading] = useState(false);
             const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'map'
-            const [profileTab, setProfileTab] = useState('trips'); // 'trips', 'posts', 'saved', 'following'
+            const [profileTab, setProfileTab] = useState('posts'); // 'trips', 'posts', 'saved'
             const [filters, setFilters] = useState({
                 type: 'all',
                 neighborhood: 'all',
@@ -2467,34 +2480,34 @@
 
                             <div className="profile-tabs">
                                 <div 
-                                    className={`profile-tab ${profileTab === 'trips' ? 'active' : ''}`}
-                                    onClick={() => setProfileTab('trips')}
-                                >
-                                    Trips
-                                </div>
-                                <div 
                                     className={`profile-tab ${profileTab === 'posts' ? 'active' : ''}`}
                                     onClick={() => setProfileTab('posts')}
                                 >
-                                    Posts
+                                    <svg viewBox="0 0 24 24">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                        <polyline points="21 15 16 10 5 21"></polyline>
+                                    </svg>
+                                    <span>Posts</span>
+                                </div>
+                                <div 
+                                    className={`profile-tab ${profileTab === 'trips' ? 'active' : ''}`}
+                                    onClick={() => setProfileTab('trips')}
+                                >
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span>Trips</span>
                                 </div>
                                 <div 
                                     className={`profile-tab ${profileTab === 'saved' ? 'active' : ''}`}
                                     onClick={() => setProfileTab('saved')}
                                 >
-                                    Saved
-                                </div>
-                                <div 
-                                    className={`profile-tab ${profileTab === 'following' ? 'active' : ''}`}
-                                    onClick={() => setProfileTab('following')}
-                                >
-                                    Following
-                                </div>
-                                <div 
-                                    className={`profile-tab ${profileTab === 'content' ? 'active' : ''}`}
-                                    onClick={() => setProfileTab('content')}
-                                >
-                                    Content Plan 📸
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                    <span>Saved</span>
                                 </div>
                             </div>
 
