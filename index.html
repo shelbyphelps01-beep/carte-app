@@ -127,6 +127,55 @@
             padding-bottom: 80px;
         }
 
+        .feed-header-bar {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            margin: 0 -32px 0;
+        }
+
+        .feed-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            color: var(--warm-black);
+        }
+
+        .upload-button-header {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-button-header:hover {
+            background: var(--cream);
+            border-color: var(--terracotta);
+        }
+
+        .upload-button-header svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--warm-black);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
         .nav-item {
             padding: 12px 0;
             font-size: 15px;
@@ -827,7 +876,7 @@
 
         .post-images {
             position: relative;
-            height: 1350px;
+            height: 800px;
             background: var(--cream);
         }
 
@@ -1714,6 +1763,16 @@
 
                     {!loading && activeTab === 'feed' && (
                         <>
+                            <div className="feed-header-bar">
+                                <div className="feed-logo">Carte</div>
+                                <div className="upload-button-header" onClick={handleUploadClick}>
+                                    <svg viewBox="0 0 24 24">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg>
+                                </div>
+                            </div>
+
                             <div className="feed-grid">
                                 {mockFeedPosts.map(post => (
                                     <div key={post.id} className="feed-post">
@@ -1730,7 +1789,7 @@
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
-                                                fontSize: '240px',
+                                                fontSize: '160px',
                                                 opacity: 0.3
                                             }}>
                                                 🍽️
@@ -1739,7 +1798,7 @@
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
-                                                fontSize: '60px',
+                                                fontSize: '48px',
                                                 opacity: 0.4
                                             }}>
                                                 😋
