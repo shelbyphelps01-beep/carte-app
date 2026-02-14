@@ -74,8 +74,8 @@
             right: 0;
             background: white;
             border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
             align-items: center;
             padding: 8px 0 12px;
             z-index: 1000;
@@ -86,14 +86,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             gap: 4px;
             cursor: pointer;
-            padding: 4px 8px;
+            padding: 4px 0;
             transition: all 0.3s ease;
             color: var(--soft-gray);
             text-decoration: none;
-            flex: 1;
-            max-width: 80px;
         }
 
         .nav-icon:hover {
@@ -1022,6 +1021,7 @@
             align-items: start;
             gap: 32px;
             margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
         .profile-avatar-large {
@@ -1040,6 +1040,7 @@
 
         .profile-info {
             flex: 1;
+            min-width: 0;
         }
 
         .profile-name {
@@ -1067,6 +1068,7 @@
             display: flex;
             gap: 32px;
             margin-bottom: 24px;
+            flex-wrap: wrap;
         }
 
         .profile-stat {
@@ -1353,6 +1355,40 @@
 
             .feed-grid {
                 margin: 0 auto;
+            }
+
+            .profile-header {
+                padding: 24px 20px;
+            }
+
+            .profile-top {
+                gap: 20px;
+            }
+
+            .profile-avatar-large {
+                width: 80px;
+                height: 80px;
+                font-size: 32px;
+            }
+
+            .profile-name {
+                font-size: 24px;
+            }
+
+            .profile-stats {
+                gap: 20px;
+            }
+
+            .profile-stat {
+                min-width: 60px;
+            }
+
+            .stat-number {
+                font-size: 20px;
+            }
+
+            .profile-content {
+                padding: 24px 20px;
             }
         }
     </style>
