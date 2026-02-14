@@ -77,7 +77,7 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            padding: 12px 0;
+            padding: 8px 0 12px;
             z-index: 1000;
             box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
         }
@@ -88,10 +88,12 @@
             align-items: center;
             gap: 4px;
             cursor: pointer;
-            padding: 8px 16px;
+            padding: 4px 8px;
             transition: all 0.3s ease;
             color: var(--soft-gray);
             text-decoration: none;
+            flex: 1;
+            max-width: 80px;
         }
 
         .nav-icon:hover {
@@ -117,10 +119,10 @@
         }
 
         .nav-icon-label {
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
 
         .content-wrapper {
@@ -1572,6 +1574,10 @@
                 setActiveTab('upload');
             };
 
+            const handleCameraClick = () => {
+                alert('📸 BeReal-style camera coming soon!\n\n✓ Take photo of your food\n✓ Automatic selfie overlay\n✓ Share to feed instantly');
+            };
+
             const generateItinerary = () => {
                 if (places.length === 0) return;
 
@@ -1796,10 +1802,10 @@
                         <>
                             <div className="feed-header-bar">
                                 <div className="feed-logo">Carte</div>
-                                <div className="upload-button-header" onClick={handleUploadClick}>
+                                <div className="upload-button-header" onClick={handleCameraClick}>
                                     <svg viewBox="0 0 24 24">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                                        <circle cx="12" cy="13" r="4"></circle>
                                     </svg>
                                 </div>
                             </div>
