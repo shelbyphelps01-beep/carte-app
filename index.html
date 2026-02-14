@@ -1010,30 +1010,28 @@
         /* Profile Styles */
         .profile-header {
             background: white;
-            border-radius: 16px;
-            padding: 48px;
-            margin-bottom: 32px;
-            border: 1px solid var(--border);
+            padding: 16px 20px;
+            margin-bottom: 0;
+            border-bottom: 1px solid var(--border);
         }
 
         .profile-top {
             display: flex;
-            align-items: start;
-            gap: 32px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
         }
 
         .profile-avatar-large {
-            width: 120px;
-            height: 120px;
+            width: 86px;
+            height: 86px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--terracotta) 0%, var(--light-terracotta) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 48px;
+            font-size: 36px;
             font-weight: 600;
             flex-shrink: 0;
         }
@@ -1044,55 +1042,64 @@
         }
 
         .profile-name {
-            font-family: 'Crimson Pro', serif;
-            font-size: 32px;
-            font-weight: 400;
-            margin-bottom: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 2px;
         }
 
         .profile-username {
             color: var(--soft-gray);
-            font-size: 16px;
-            margin-bottom: 16px;
+            font-size: 14px;
+            margin-bottom: 12px;
         }
 
         .profile-bio {
             color: var(--warm-black);
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 24px;
-            max-width: 500px;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 0;
+            max-width: 100%;
         }
 
         .profile-stats {
             display: flex;
-            gap: 32px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
+            gap: 0;
+            margin-bottom: 0;
+            padding: 12px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: white;
         }
 
         .profile-stat {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 0;
+            align-items: center;
+            flex: 1;
+            padding: 4px;
         }
 
         .stat-number {
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 700;
             color: var(--warm-black);
+            line-height: 1;
         }
 
         .stat-label {
-            font-size: 13px;
+            font-size: 11px;
             color: var(--soft-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            text-transform: none;
+            letter-spacing: 0;
+            margin-top: 2px;
         }
 
         .profile-actions {
             display: flex;
-            gap: 12px;
+            gap: 8px;
+            padding: 12px 0 16px;
         }
 
         .follow-btn {
@@ -1120,19 +1127,20 @@
         }
 
         .edit-profile-btn {
-            padding: 12px 24px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            background: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            background: var(--cream);
             color: var(--warm-black);
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             font-family: 'DM Sans', sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex: 1;
         }
 
         .edit-profile-btn svg {
@@ -1144,30 +1152,29 @@
         }
 
         .edit-profile-btn:hover {
-            border-color: var(--terracotta);
-            color: var(--terracotta);
+            background: #E5E3DF;
         }
 
         .profile-tabs {
             display: flex;
-            gap: 32px;
-            border-bottom: 2px solid var(--border);
-            padding: 0 48px;
+            gap: 0;
+            border-bottom: 1px solid var(--border);
+            padding: 0;
             background: white;
-            border-radius: 16px 16px 0 0;
-            border: 1px solid var(--border);
-            border-bottom: none;
+            justify-content: space-around;
         }
 
         .profile-tab {
-            padding: 16px 0;
-            font-size: 15px;
-            font-weight: 500;
+            padding: 12px 0;
+            font-size: 13px;
+            font-weight: 600;
             color: var(--soft-gray);
             cursor: pointer;
-            border-bottom: 3px solid transparent;
-            margin-bottom: -2px;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
             transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
         }
 
         .profile-tab:hover {
@@ -1176,16 +1183,12 @@
 
         .profile-tab.active {
             color: var(--warm-black);
-            border-bottom-color: var(--terracotta);
+            border-bottom-color: var(--warm-black);
         }
 
         .profile-content {
             background: white;
-            border-radius: 0 0 16px 16px;
-            padding: 32px 48px;
-            border: 1px solid var(--border);
-            border-top: none;
-            margin-bottom: 32px;
+            padding: 20px;
             min-height: 400px;
         }
 
@@ -1335,18 +1338,21 @@
             }
 
             .profile-actions {
-                flex-direction: column;
-                width: 100%;
+                flex-direction: row;
             }
 
             .edit-profile-btn {
-                width: 100%;
+                flex: 1;
             }
 
             .profile-tabs {
-                padding: 0 20px;
                 overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .profile-tab {
                 white-space: nowrap;
+                min-width: 80px;
             }
 
             .post-images {
@@ -1358,37 +1364,11 @@
             }
 
             .profile-header {
-                padding: 24px 20px;
-            }
-
-            .profile-top {
-                gap: 20px;
-            }
-
-            .profile-avatar-large {
-                width: 80px;
-                height: 80px;
-                font-size: 32px;
-            }
-
-            .profile-name {
-                font-size: 24px;
-            }
-
-            .profile-stats {
-                gap: 20px;
-            }
-
-            .profile-stat {
-                min-width: 60px;
-            }
-
-            .stat-number {
-                font-size: 20px;
+                padding: 16px 20px;
             }
 
             .profile-content {
-                padding: 24px 20px;
+                padding: 16px 20px;
             }
         }
     </style>
@@ -2451,45 +2431,37 @@
                                     <div className="profile-info">
                                         <div className="profile-name">{currentUser.name}</div>
                                         <div className="profile-username">{currentUser.username}</div>
-                                        <div className="profile-bio">{currentUser.bio}</div>
-                                        <div className="profile-stats">
-                                            <div className="profile-stat">
-                                                <div className="stat-number">{currentUser.stats.places}</div>
-                                                <div className="stat-label">Places</div>
-                                            </div>
-                                            <div className="profile-stat">
-                                                <div className="stat-number">{currentUser.stats.trips}</div>
-                                                <div className="stat-label">Trips</div>
-                                            </div>
-                                            <div className="profile-stat">
-                                                <div className="stat-number">{currentUser.stats.followers}</div>
-                                                <div className="stat-label">Followers</div>
-                                            </div>
-                                            <div className="profile-stat">
-                                                <div className="stat-number">{currentUser.stats.following}</div>
-                                                <div className="stat-label">Following</div>
-                                            </div>
-                                        </div>
-                                        <div className="profile-actions">
-                                            <button className="edit-profile-btn" onClick={() => alert('Edit profile coming soon!')}>
-                                                <svg viewBox="0 0 24 24" style={{width: '16px', height: '16px', marginRight: '6px'}}>
-                                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                                </svg>
-                                                Edit Profile
-                                            </button>
-                                            <button className="edit-profile-btn" onClick={() => alert('Share profile coming soon!')}>
-                                                <svg viewBox="0 0 24 24" style={{width: '16px', height: '16px', marginRight: '6px'}}>
-                                                    <circle cx="18" cy="5" r="3"></circle>
-                                                    <circle cx="6" cy="12" r="3"></circle>
-                                                    <circle cx="18" cy="19" r="3"></circle>
-                                                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                                                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                                                </svg>
-                                                Share Profile
-                                            </button>
-                                        </div>
                                     </div>
+                                </div>
+                                
+                                <div className="profile-bio">{currentUser.bio}</div>
+                                
+                                <div className="profile-actions">
+                                    <button className="edit-profile-btn" onClick={() => alert('Edit profile coming soon!')}>
+                                        Edit Profile
+                                    </button>
+                                    <button className="edit-profile-btn" onClick={() => alert('Share profile coming soon!')}>
+                                        Share Profile
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="profile-stats">
+                                <div className="profile-stat">
+                                    <div className="stat-number">{currentUser.stats.places}</div>
+                                    <div className="stat-label">Places</div>
+                                </div>
+                                <div className="profile-stat">
+                                    <div className="stat-number">{currentUser.stats.trips}</div>
+                                    <div className="stat-label">Trips</div>
+                                </div>
+                                <div className="profile-stat">
+                                    <div className="stat-number">{currentUser.stats.followers}</div>
+                                    <div className="stat-label">Followers</div>
+                                </div>
+                                <div className="profile-stat">
+                                    <div className="stat-number">{currentUser.stats.following}</div>
+                                    <div className="stat-label">Following</div>
                                 </div>
                             </div>
 
