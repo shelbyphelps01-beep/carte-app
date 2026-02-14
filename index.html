@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carte — Your Personal City Guide</title>
-    
-    <!-- PWA Meta Tags -->
-    <meta name="description" content="Organize your Instagram saves and plan the perfect trip">
-    <meta name="theme-color" content="#9B8B5E">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Carte">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' fill='%239B8B5E' rx='40'/%3E%3Ctext x='96' y='140' font-size='120' text-anchor='middle' fill='white' font-family='serif'%3EC%3C/text%3E%3C/svg%3E">
-    
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -77,34 +67,6 @@
             border-bottom: 1px solid var(--border);
         }
 
-        /* Bottom Navigation for Mobile */
-        @media (max-width: 768px) {
-            nav {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: white;
-                border-bottom: none;
-                border-top: 1px solid var(--border);
-                margin-top: 0;
-                padding: 8px 0;
-                gap: 0;
-                justify-content: space-around;
-                z-index: 100;
-                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-            }
-
-            .container {
-                padding-bottom: 80px; /* Space for bottom nav */
-            }
-
-            header {
-                border-bottom: none;
-                margin-bottom: 24px;
-            }
-        }
-
         .nav-item {
             padding: 12px 0;
             font-size: 15px;
@@ -113,20 +75,6 @@
             border-bottom: 2px solid transparent;
             transition: all 0.3s ease;
             font-weight: 500;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .nav-icon {
-            width: 20px;
-            height: 20px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
         }
 
         .nav-item:hover {
@@ -818,7 +766,7 @@
 
         .post-images {
             position: relative;
-            height: 500px;
+            height: 400px;
             background: var(--cream);
         }
 
@@ -1296,329 +1244,31 @@
 
         @media (max-width: 768px) {
             .container {
-                padding: 0 16px;
+                padding: 0 20px;
             }
 
             header {
-                padding: 16px 0 12px;
-                margin-bottom: 16px;
-                position: sticky;
-                top: 0;
-                background: var(--cream);
-                z-index: 90;
+                padding: 32px 0 24px;
             }
 
             .logo {
-                font-size: 24px;
-            }
-
-            .tagline {
-                font-size: 12px;
-            }
-
-            nav {
-                gap: 16px;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                margin-top: 20px;
-            }
-
-            nav::-webkit-scrollbar {
-                display: none;
-            }
-
-            .nav-item {
-                font-size: 13px;
-                padding: 10px 0;
-                white-space: nowrap;
-                min-width: 60px;
-                gap: 2px;
-            }
-
-            .nav-item span {
-                font-size: 11px !important;
-            }
-
-            .nav-icon {
-                width: 24px !important;
-                height: 24px !important;
+                font-size: 28px;
             }
 
             .upload-section {
-                padding: 32px 20px;
-                margin-bottom: 24px;
-            }
-
-            .upload-title {
-                font-size: 20px;
-            }
-
-            .upload-subtitle {
-                font-size: 14px;
-            }
-
-            .button-group {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-                padding: 12px 24px;
+                padding: 48px 24px;
             }
 
             .places-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .place-card {
-                border-radius: 12px;
-            }
-
-            .place-content {
-                padding: 16px;
-            }
-
-            .place-name {
-                font-size: 18px;
-            }
-
-            .filters {
-                padding: 16px;
-                gap: 8px;
-                flex-direction: column;
-            }
-
-            select {
-                width: 100%;
             }
 
             .itinerary-section {
-                padding: 24px 16px;
-                margin-bottom: 24px;
-            }
-
-            .itinerary-header {
-                font-size: 24px;
+                padding: 32px 24px;
             }
 
             .preference-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .day-header {
-                flex-direction: row;
-                align-items: center;
-            }
-
-            .day-number {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-
-            .day-title {
-                font-size: 20px;
-            }
-
-            .timeline {
-                padding-left: 32px;
-            }
-
-            .timeline-item {
-                padding-left: 24px;
-            }
-
-            .action-buttons {
-                flex-direction: column;
-            }
-
-            .action-btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .feed-header {
-                padding: 24px 20px;
-                margin-bottom: 24px;
-            }
-
-            .feed-title {
-                font-size: 24px;
-            }
-
-            .feed-grid {
-                grid-template-columns: 1fr;
-                gap: 0;
-                margin-bottom: 80px;
-            }
-
-            .feed-post {
-                border-radius: 0;
-                border-left: none;
-                border-right: none;
-                margin-bottom: 16px;
-            }
-
-            .post-images {
-                height: 480px;
-            }
-
-            .post-selfie {
-                width: 90px;
-                height: 120px;
-                top: 12px;
-                right: 12px;
-            }
-
-            .trending-section {
-                padding: 20px 16px;
-                margin-bottom: 24px;
-            }
-
-            .map-container {
-                height: 400px;
-                margin-bottom: 24px;
-            }
-
-            .profile-header {
-                padding: 24px 20px;
-                margin-bottom: 24px;
-            }
-
-            .profile-top {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 20px;
-            }
-
-            .profile-avatar-large {
-                width: 100px;
-                height: 100px;
-                font-size: 40px;
-            }
-
-            .profile-name {
-                font-size: 28px;
-            }
-
-            .profile-stats {
-                justify-content: center;
-                gap: 24px;
-            }
-
-            .profile-actions {
-                width: 100%;
-                flex-direction: column;
-            }
-
-            .follow-btn,
-            .edit-profile-btn {
-                width: 100%;
-            }
-
-            .profile-tabs {
-                padding: 0 16px;
-                gap: 16px;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-            }
-
-            .profile-tabs::-webkit-scrollbar {
-                display: none;
-            }
-
-            .profile-tab {
-                font-size: 14px;
-                white-space: nowrap;
-            }
-
-            .profile-content {
-                padding: 20px 16px;
-            }
-
-            .trips-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .following-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .fab {
-                width: 56px;
-                height: 56px;
-                bottom: 90px;
-                right: 16px;
-                font-size: 20px;
-            }
-
-            .fab-menu {
-                bottom: 156px;
-                right: 16px;
-                min-width: 200px;
-                padding: 12px;
-            }
-
-            .fab-menu-item {
-                padding: 12px;
-                font-size: 14px;
-            }
-
-            /* Mobile-specific improvements */
-            .preference-grid > div:nth-child(4),
-            .preference-grid > div:nth-child(3),
-            .preference-grid > div:nth-child(2),
-            .preference-grid > div:nth-child(1) {
-                grid-column: span 1;
-            }
-
-            /* Stack budget and packing side by side becomes stacked */
-            div[style*="grid-template-columns: 1fr 1fr"] {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* Make trip switcher more compact on mobile */
-            div[style*="justify-content: space-between"] > div:first-child select {
-                font-size: 16px !important;
-                max-width: 200px;
-            }
-        }
-
-        /* Extra small screens */
-        @media (max-width: 400px) {
-            .container {
-                padding: 0 12px;
-            }
-
-            .logo {
-                font-size: 20px;
-            }
-
-            nav {
-                gap: 12px;
-            }
-
-            .nav-item {
-                font-size: 12px;
-            }
-
-            .place-name {
-                font-size: 16px;
-            }
-
-            .feed-title {
-                font-size: 20px;
-            }
-
-            .profile-name {
-                font-size: 24px;
             }
         }
     </style>
@@ -2049,75 +1699,31 @@
                                 className={`nav-item ${activeTab === 'feed' ? 'active' : ''}`}
                                 onClick={() => setActiveTab('feed')}
                             >
-                                <svg className="nav-icon" viewBox="0 0 24 24">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                </svg>
-                                <span style={{fontSize: '13px'}}>Feed</span>
+                                Feed
                             </div>
                             <div 
-                                className={`nav-item ${activeTab === 'discover' ? 'active' : ''}`}
-                                onClick={() => setActiveTab('discover')}
+                                className={`nav-item ${activeTab === 'upload' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('upload')}
                             >
-                                <svg className="nav-icon" viewBox="0 0 24 24">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <path d="m21 21-4.35-4.35"></path>
-                                </svg>
-                                <span style={{fontSize: '13px'}}>Discover</span>
-                            </div>
-                            <div 
-                                className="nav-item"
-                                onClick={() => alert('📸 Share Your Moment!\n\nPost where you are right now (Feature coming soon)')}
-                                style={{position: 'relative'}}
-                            >
-                                <div style={{
-                                    width: '48px',
-                                    height: '48px',
-                                    borderRadius: '12px',
-                                    background: 'var(--terracotta)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    marginTop: '-24px',
-                                    border: '4px solid white',
-                                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-                                }}>
-                                    <svg style={{width: '24px', height: '24px', stroke: 'white', fill: 'none', strokeWidth: '2.5'}} viewBox="0 0 24 24">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
+                                Upload
                             </div>
                             <div 
                                 className={`nav-item ${activeTab === 'places' ? 'active' : ''}`}
                                 onClick={() => setActiveTab('places')}
                             >
-                                <svg className="nav-icon" viewBox="0 0 24 24">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                                <span style={{fontSize: '13px'}}>Places</span>
+                                My Places ({places.length})
                             </div>
                             <div 
-                                className={`nav-item ${activeTab === 'plan' ? 'active' : ''}`}
-                                onClick={() => setActiveTab('plan')}
+                                className={`nav-item ${activeTab === 'itinerary' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('itinerary')}
                             >
-                                <svg className="nav-icon" viewBox="0 0 24 24">
-                                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <line x1="9" y1="15" x2="15" y2="15"></line>
-                                </svg>
-                                <span style={{fontSize: '13px'}}>Plan</span>
+                                Generate Plan
                             </div>
                             <div 
                                 className={`nav-item ${activeTab === 'profile' ? 'active' : ''}`}
                                 onClick={() => setActiveTab('profile')}
                             >
-                                <svg className="nav-icon" viewBox="0 0 24 24">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>
-                                <span style={{fontSize: '13px'}}>Profile</span>
+                                Profile
                             </div>
                         </nav>
                     </header>
@@ -2131,6 +1737,128 @@
 
                     {!loading && activeTab === 'feed' && (
                         <>
+                            <div className="feed-header">
+                                <div className="feed-title">What's happening in Paris</div>
+                                <div className="feed-subtitle">See real moments from travelers right now</div>
+                                <button className="post-btn" onClick={() => alert('📸 Time to share! Post where you are right now (Feature coming soon)')}>
+                                    📸 Share Your Moment
+                                </button>
+                            </div>
+
+                            <div className="trending-section">
+                                <div className="trending-title">
+                                    🔥 Trending Now
+                                </div>
+                                <div className="trending-list">
+                                    {trendingPlaces.map((place, idx) => (
+                                        <div key={idx} className="trending-item">
+                                            <div className="trending-info">
+                                                <div className="trending-name">{place.name}</div>
+                                                <div className="trending-meta">{place.visits} visits this week</div>
+                                            </div>
+                                            <div className="trending-count">{place.saves} saves</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '32px'}}>
+                                <div className="trending-section">
+                                    <div className="trending-title">
+                                        ☀️ Paris Weather
+                                    </div>
+                                    <div style={{display: 'flex', alignItems: 'center', gap: '24px', marginTop: '16px'}}>
+                                        <div style={{fontSize: '48px'}}>🌤️</div>
+                                        <div>
+                                            <div style={{fontSize: '32px', fontWeight: 600, color: 'var(--warm-black)'}}>22°C</div>
+                                            <div style={{fontSize: '14px', color: 'var(--soft-gray)'}}>Partly cloudy, perfect for exploring</div>
+                                        </div>
+                                    </div>
+                                    <div style={{
+                                        display: 'flex',
+                                        gap: '12px',
+                                        marginTop: '16px',
+                                        fontSize: '13px',
+                                        color: 'var(--soft-gray)'
+                                    }}>
+                                        <div>Mon 20°</div>
+                                        <div>Tue 23°</div>
+                                        <div>Wed 21°</div>
+                                        <div>Thu 19°</div>
+                                        <div>Fri 24°</div>
+                                    </div>
+                                    <button 
+                                        style={{
+                                            width: '100%',
+                                            marginTop: '16px',
+                                            padding: '10px',
+                                            borderRadius: '8px',
+                                            border: '1px solid var(--border)',
+                                            background: 'white',
+                                            cursor: 'pointer',
+                                            fontSize: '13px',
+                                            fontWeight: 500
+                                        }}
+                                        onClick={() => alert('☀️ Weather Integration coming soon!\n\n✓ 7-day forecast\n✓ Indoor/outdoor activity suggestions\n✓ Pack based on weather\n✓ Best times to visit')}
+                                    >
+                                        View Full Forecast →
+                                    </button>
+                                </div>
+
+                                <div className="trending-section">
+                                    <div className="trending-title">
+                                        ✨ Recommended for You
+                                    </div>
+                                    <div style={{fontSize: '14px', color: 'var(--soft-gray)', marginBottom: '16px'}}>
+                                        Based on places you've saved
+                                    </div>
+                                    <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
+                                        <div style={{
+                                            padding: '12px',
+                                            background: 'var(--cream)',
+                                            borderRadius: '8px',
+                                            cursor: 'pointer'
+                                        }}>
+                                            <div style={{fontSize: '14px', fontWeight: 600, color: 'var(--warm-black)'}}>
+                                                Le Comptoir du Relais
+                                            </div>
+                                            <div style={{fontSize: '12px', color: 'var(--soft-gray)'}}>
+                                                Similar to Le Voltaire • Saint-Germain
+                                            </div>
+                                        </div>
+                                        <div style={{
+                                            padding: '12px',
+                                            background: 'var(--cream)',
+                                            borderRadius: '8px',
+                                            cursor: 'pointer'
+                                        }}>
+                                            <div style={{fontSize: '14px', fontWeight: 600, color: 'var(--warm-black)'}}>
+                                                L'Ami Jean
+                                            </div>
+                                            <div style={{fontSize: '12px', color: 'var(--soft-gray)'}}>
+                                                Similar vibe to Chez L'Ami Louis • 7th
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button 
+                                        style={{
+                                            width: '100%',
+                                            marginTop: '16px',
+                                            padding: '10px',
+                                            borderRadius: '8px',
+                                            border: '1px solid var(--border)',
+                                            background: 'white',
+                                            cursor: 'pointer',
+                                            fontSize: '13px',
+                                            fontWeight: 500
+                                        }}
+                                        onClick={() => alert('✨ Smart Recommendations coming soon!\n\n✓ AI-powered suggestions\n✓ Based on your taste\n✓ Similar cuisine & vibe\n✓ Same neighborhood options')}
+                                    >
+                                        See More Recommendations →
+                                    </button>
+                                </div>
+                            </div>
+
                             <div className="feed-grid">
                                 {mockFeedPosts.map(post => (
                                     <div key={post.id} className="feed-post">
@@ -2190,201 +1918,6 @@
                                 </div>
                                 <div style={{fontSize: '14px'}}>
                                     Check back soon for more moments from Paris
-                                </div>
-                            </div>
-                        </>
-                    )}
-
-                    {!loading && activeTab === 'discover' && (
-                        <>
-                            <div style={{
-                                background: 'white',
-                                borderRadius: '16px',
-                                padding: '16px',
-                                marginBottom: '24px',
-                                border: '1px solid var(--border)'
-                            }}>
-                                <div style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '12px',
-                                    padding: '12px 16px',
-                                    background: 'var(--cream)',
-                                    borderRadius: '12px'
-                                }}>
-                                    <svg style={{width: '20px', height: '20px', stroke: 'var(--soft-gray)', fill: 'none', strokeWidth: '2'}} viewBox="0 0 24 24">
-                                        <circle cx="11" cy="11" r="8"></circle>
-                                        <path d="m21 21-4.35-4.35"></path>
-                                    </svg>
-                                    <input 
-                                        type="text"
-                                        placeholder="Search places, people, neighborhoods..."
-                                        style={{
-                                            border: 'none',
-                                            background: 'transparent',
-                                            outline: 'none',
-                                            flex: 1,
-                                            fontSize: '15px',
-                                            fontFamily: 'DM Sans, sans-serif',
-                                            color: 'var(--warm-black)'
-                                        }}
-                                        onClick={() => alert('🔍 Search coming soon!\n\n✓ Find friends\n✓ Search places\n✓ Discover neighborhoods')}
-                                    />
-                                </div>
-                            </div>
-
-                            <div style={{
-                                display: 'flex',
-                                gap: '24px',
-                                borderBottom: '1px solid var(--border)',
-                                marginBottom: '24px',
-                                overflowX: 'auto',
-                                scrollbarWidth: 'none'
-                            }}>
-                                <div 
-                                    style={{
-                                        padding: '12px 0',
-                                        fontSize: '15px',
-                                        fontWeight: 500,
-                                        color: 'var(--warm-black)',
-                                        borderBottom: '2px solid var(--terracotta)',
-                                        cursor: 'pointer',
-                                        whiteSpace: 'nowrap'
-                                    }}
-                                >
-                                    Trending
-                                </div>
-                                <div 
-                                    style={{
-                                        padding: '12px 0',
-                                        fontSize: '15px',
-                                        fontWeight: 500,
-                                        color: 'var(--soft-gray)',
-                                        borderBottom: '2px solid transparent',
-                                        cursor: 'pointer',
-                                        whiteSpace: 'nowrap'
-                                    }}
-                                    onClick={() => alert('For You tab coming soon!')}
-                                >
-                                    For You
-                                </div>
-                                <div 
-                                    style={{
-                                        padding: '12px 0',
-                                        fontSize: '15px',
-                                        fontWeight: 500,
-                                        color: 'var(--soft-gray)',
-                                        borderBottom: '2px solid transparent',
-                                        cursor: 'pointer',
-                                        whiteSpace: 'nowrap'
-                                    }}
-                                    onClick={() => alert('Neighborhoods tab coming soon!')}
-                                >
-                                    Neighborhoods
-                                </div>
-                                <div 
-                                    style={{
-                                        padding: '12px 0',
-                                        fontSize: '15px',
-                                        fontWeight: 500,
-                                        color: 'var(--soft-gray)',
-                                        borderBottom: '2px solid transparent',
-                                        cursor: 'pointer',
-                                        whiteSpace: 'nowrap'
-                                    }}
-                                    onClick={() => alert('People tab coming soon!')}
-                                >
-                                    People
-                                </div>
-                            </div>
-
-                            <div className="trending-section">
-                                <div className="trending-list">
-                                    {trendingPlaces.map((place, idx) => (
-                                        <div key={idx} className="trending-item">
-                                            <div className="trending-info">
-                                                <div className="trending-name">{place.name}</div>
-                                                <div className="trending-meta">{place.visits} visits this week</div>
-                                            </div>
-                                            <div className="trending-count">{place.saves} saves</div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div className="trending-section">
-                                <div className="trending-title">
-                                    Recommended for You
-                                </div>
-                                    <div style={{fontSize: '14px', color: 'var(--soft-gray)', marginBottom: '16px'}}>
-                                        Based on places you've saved
-                                    </div>
-                                    <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
-                                        <div style={{
-                                            padding: '12px',
-                                            background: 'var(--cream)',
-                                            borderRadius: '8px',
-                                            cursor: 'pointer'
-                                        }} onClick={() => alert('Add to My Places coming soon!')}>
-                                            <div style={{fontSize: '14px', fontWeight: 600, color: 'var(--warm-black)'}}>
-                                                Le Comptoir du Relais
-                                            </div>
-                                            <div style={{fontSize: '12px', color: 'var(--soft-gray)'}}>
-                                                Similar to Le Voltaire • Saint-Germain
-                                            </div>
-                                        </div>
-                                        <div style={{
-                                            padding: '12px',
-                                            background: 'var(--cream)',
-                                            borderRadius: '8px',
-                                            cursor: 'pointer'
-                                        }} onClick={() => alert('Add to My Places coming soon!')}>
-                                            <div style={{fontSize: '14px', fontWeight: 600, color: 'var(--warm-black)'}}>
-                                                L'Ami Jean
-                                            </div>
-                                            <div style={{fontSize: '12px', color: 'var(--soft-gray)'}}>
-                                                Similar vibe to Chez L'Ami Louis • 7th
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button 
-                                        style={{
-                                            width: '100%',
-                                            marginTop: '16px',
-                                            padding: '10px',
-                                            borderRadius: '8px',
-                                            border: '1px solid var(--border)',
-                                            background: 'white',
-                                            cursor: 'pointer',
-                                            fontSize: '13px',
-                                            fontWeight: 500
-                                        }}
-                                        onClick={() => alert('✨ Smart Recommendations coming soon!\n\n✓ AI-powered suggestions\n✓ Based on your taste\n✓ Similar cuisine & vibe\n✓ Neighborhood options')}
-                                    >
-                                        See More Recommendations →
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div className="trending-section">
-                                <div className="trending-title">Explore Paris</div>
-                                <div style={{fontSize: '14px', color: 'var(--soft-gray)', marginBottom: '16px'}}>
-                                    Popular neighborhoods and experiences
-                                </div>
-                                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '12px'}}>
-                                    {['Marais', 'Saint-Germain', 'Montmartre', 'Latin Quarter', 'Le Marais', '7th Arr'].map((hood, idx) => (
-                                        <div key={idx} style={{
-                                            padding: '20px',
-                                            background: 'var(--cream)',
-                                            borderRadius: '12px',
-                                            textAlign: 'center',
-                                            cursor: 'pointer',
-                                            transition: 'all 0.3s ease',
-                                            border: '1px solid var(--border)'
-                                        }} onClick={() => alert('Explore ' + hood + ' coming soon!')}>
-                                            <div style={{fontSize: '16px', fontWeight: 600}}>{hood}</div>
-                                        </div>
-                                    ))}
                                 </div>
                             </div>
                         </>
@@ -2654,9 +2187,9 @@
                         </>
                     )}
 
-                    {!loading && activeTab === 'plan' && (
+                    {!loading && activeTab === 'itinerary' && (
                         <div className="itinerary-section">
-                            <div className="itinerary-header" style={{marginBottom: '32px'}}>Plan Your Trip</div>
+                            <div className="itinerary-header" style={{marginBottom: '32px'}}>Plan your perfect trip</div>
                             
                             <div className="preference-grid">
                                 <div className="preference-item">
@@ -2692,6 +2225,145 @@
                                         <option value="neighborhood">Stay in Neighborhoods (less travel)</option>
                                         <option value="mixed">Explore Across Paris</option>
                                     </select>
+                                </div>
+                            </div>
+
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: '1fr 1fr',
+                                gap: '24px',
+                                marginBottom: '32px'
+                            }}>
+                                <div style={{
+                                    background: 'var(--cream)',
+                                    borderRadius: '12px',
+                                    padding: '24px',
+                                    border: '1px solid var(--border)'
+                                }}>
+                                    <div style={{
+                                        fontSize: '18px',
+                                        fontFamily: 'Crimson Pro, serif',
+                                        fontWeight: 600,
+                                        marginBottom: '16px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '8px'
+                                    }}>
+                                        💰 Budget Tracker
+                                        <span style={{
+                                            fontSize: '11px',
+                                            background: 'var(--terracotta)',
+                                            color: 'white',
+                                            padding: '2px 8px',
+                                            borderRadius: '4px',
+                                            fontFamily: 'DM Sans, sans-serif',
+                                            fontWeight: 600
+                                        }}>BETA</span>
+                                    </div>
+                                    <div style={{fontSize: '14px', color: 'var(--soft-gray)', marginBottom: '16px'}}>
+                                        Estimated trip cost based on your places
+                                    </div>
+                                    <div style={{fontSize: '32px', fontWeight: 600, color: 'var(--warm-black)', marginBottom: '16px'}}>
+                                        €850 - €1,200
+                                    </div>
+                                    <div style={{fontSize: '13px', color: 'var(--soft-gray)', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+                                        <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                                            <span>🍽️ Dining</span>
+                                            <span>€600 - €800</span>
+                                        </div>
+                                        <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                                            <span>🚇 Transport</span>
+                                            <span>€150 - €250</span>
+                                        </div>
+                                        <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                                            <span>🎨 Activities</span>
+                                            <span>€100 - €150</span>
+                                        </div>
+                                    </div>
+                                    <button 
+                                        style={{
+                                            width: '100%',
+                                            marginTop: '16px',
+                                            padding: '12px',
+                                            borderRadius: '8px',
+                                            border: '1px solid var(--border)',
+                                            background: 'white',
+                                            cursor: 'pointer',
+                                            fontSize: '14px',
+                                            fontWeight: 500
+                                        }}
+                                        onClick={() => alert('💰 Full Budget Tracker coming soon!\n\n✓ Track actual spending\n✓ Set daily budgets\n✓ Category breakdowns\n✓ Currency conversion')}
+                                    >
+                                        View Full Budget →
+                                    </button>
+                                </div>
+
+                                <div style={{
+                                    background: 'var(--cream)',
+                                    borderRadius: '12px',
+                                    padding: '24px',
+                                    border: '1px solid var(--border)'
+                                }}>
+                                    <div style={{
+                                        fontSize: '18px',
+                                        fontFamily: 'Crimson Pro, serif',
+                                        fontWeight: 600,
+                                        marginBottom: '16px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '8px'
+                                    }}>
+                                        🎒 Packing List
+                                        <span style={{
+                                            fontSize: '11px',
+                                            background: 'var(--terracotta)',
+                                            color: 'white',
+                                            padding: '2px 8px',
+                                            borderRadius: '4px',
+                                            fontFamily: 'DM Sans, sans-serif',
+                                            fontWeight: 600
+                                        }}>NEW</span>
+                                    </div>
+                                    <div style={{fontSize: '14px', color: 'var(--soft-gray)', marginBottom: '16px'}}>
+                                        Auto-generated for 7 days in Paris
+                                    </div>
+                                    <div style={{fontSize: '13px', color: 'var(--soft-gray)', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+                                        <label style={{display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer'}}>
+                                            <input type="checkbox" />
+                                            <span>Comfortable walking shoes</span>
+                                        </label>
+                                        <label style={{display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer'}}>
+                                            <input type="checkbox" />
+                                            <span>Light jacket (May weather)</span>
+                                        </label>
+                                        <label style={{display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer'}}>
+                                            <input type="checkbox" />
+                                            <span>Nice outfit for restaurants</span>
+                                        </label>
+                                        <label style={{display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer'}}>
+                                            <input type="checkbox" />
+                                            <span>Camera/phone charger</span>
+                                        </label>
+                                        <div style={{color: 'var(--soft-gray)', fontSize: '12px', marginTop: '8px'}}>
+                                            + 12 more items
+                                        </div>
+                                    </div>
+                                    <button 
+                                        style={{
+                                            width: '100%',
+                                            marginTop: '16px',
+                                            padding: '12px',
+                                            borderRadius: '8px',
+                                            border: '1px solid var(--border)',
+                                            background: 'white',
+                                            cursor: 'pointer',
+                                            fontSize: '14px',
+                                            fontWeight: 500
+                                        }}
+                                        onClick={() => alert('🎒 Full Packing List coming soon!\n\n✓ Customizable checklist\n✓ Weather-based suggestions\n✓ Trip-length optimized\n✓ Check off as you pack')}
+                                    >
+                                        View Full List →
+                                    </button>
                                 </div>
                             </div>
 
@@ -2893,7 +2565,7 @@
                                 {profileTab === 'trips' && (
                                     <div className="trips-grid">
                                         {userTrips.map(trip => (
-                                            <div key={trip.id} className="trip-card" onClick={() => alert('Opening ' + trip.city + ' trip...')}>
+                                            <div key={trip.id} className="trip-card" onClick={() => alert(`Opening ${trip.city} trip...`)}>
                                                 <div className="trip-city">{trip.city}</div>
                                                 <div className="trip-dates">{trip.dates}</div>
                                                 <div className="trip-stats-row">
@@ -2941,7 +2613,7 @@
                                 {profileTab === 'following' && (
                                     <div className="following-grid">
                                         {followingUsers.map((user, idx) => (
-                                            <div key={idx} className="user-card" onClick={() => alert('Opening ' + user.name + ' profile...')}>
+                                            <div key={idx} className="user-card" onClick={() => alert(`Opening ${user.name}'s profile...`)}>
                                                 <div className="user-card-avatar">{user.avatar}</div>
                                                 <div className="user-card-info">
                                                     <div className="user-card-name">{user.name}</div>
@@ -3119,6 +2791,26 @@
                                 <span className="fab-menu-icon">👥</span>
                                 <span>Invite Friends</span>
                             </div>
+                            <div 
+                                className="fab-menu-item"
+                                onClick={() => {
+                                    setShowFabMenu(false);
+                                    alert('💰 Budget Tracker coming soon!\n\n✓ Track actual spending\n✓ Set daily budgets\n✓ Category breakdowns\n✓ Currency conversion');
+                                }}
+                            >
+                                <span className="fab-menu-icon">💰</span>
+                                <span>View Budget</span>
+                            </div>
+                            <div 
+                                className="fab-menu-item"
+                                onClick={() => {
+                                    setShowFabMenu(false);
+                                    alert('🎒 Packing List coming soon!\n\n✓ Customizable checklist\n✓ Weather-based suggestions\n✓ Trip-length optimized');
+                                }}
+                            >
+                                <span className="fab-menu-icon">🎒</span>
+                                <span>Packing List</span>
+                            </div>
                         </div>
                     )}
                 </div>
@@ -3126,19 +2818,6 @@
         }
 
         ReactDOM.render(<App />, document.getElementById('root'));
-
-        // Register Service Worker for PWA
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registered successfully:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('Service Worker registration failed:', error);
-                    });
-            });
-        }
     </script>
 </body>
 </html>
